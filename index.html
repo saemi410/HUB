@@ -28,7 +28,6 @@
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
-
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
@@ -43,16 +42,18 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <link href="dist/css/tabulator.min.css" rel="stylesheet">
+  <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
 </head>
 <body>
 
 
-  <section class="hero">
+  <section class="hero is-light">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Holistic Unlearning Benchmark: <br>A Multi-Faceted Evaluation for <br>Text-to-Image Diffusion Model Unlearning</h1>
+            <h1 class="title is-2 publication-title">Holistic Unlearning Benchmark: <br>A Multi-Faceted Evaluation for <br>Text-to-Image Diffusion Model Unlearning</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -105,6 +106,14 @@
                   </span>
                   <span>arXiv</span>
                 </a>
+                </span>
+
+                <!-- Add some padding space -->
+                <div style="padding: 20px;"></div>
+
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block">[03.10.2025] 🛠 The code is currently being updated. Please stay tuned! </span>
+                </div>
               </span>
             </div>
           </div>
@@ -114,148 +123,110 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+<section class="section hero ">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">HUB: Holistic Unlearning Benchmark</h2>
+        <div class="publication-image">
+          <!-- Image here -->
+          <img src="static/pdfs/main_figure_v2.pdf" alt="HUB" />
+          <h2 class="subtitle has-text-centered">
+            HUB systematically evaluates unlearning methods across six key perspectives, covering 33 target concepts categorized into four dimensions: Celebrity, Style, IP, and NSFW. HUB provides an extensive set of 16,000 prompts per concept.
+          </h2>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+
+
+
+<section class="section hero">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+      <h2 class="columns has-text-centered is-centered title is-4">No single method outperforms in all perspectives</h2>
+        <div class="publication-image">
+          <!-- Image here -->
+          <img src="static/pdfs/ranking.pdf" alt="comparison table" style="width: 100%; height: auto;" />
+          <h2 class="subtitle has-text-centered is-6">
+            For each method and task, we compute the average performance across all concept categories as shown in the table below, and we then use the averages to rank the methods.        </div>
+        </div>
+    </div>
+</section>
+
+
+
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+
+<!-- End paper abstract -->
+
+<!-- Paper abstract -->
+
+
+
+<section class="hero-body hero">
+  <div class="container is-fullhd">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-4">Leaderboard for unlearning methods</h2>
+        <div class="iframe-container">
+          <iframe
+            src="https://hi-sammy-hub-maintable.hf.space"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 class="subtitle has-text-centered is-6">
+          We report the average performance across concepts for each category. Overall represents the average performance across all categories.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Paper abstract -->
+<!-- <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            As text-to-image diffusion models become advanced enough for commercial applications, there is also increasing concern about their potential for malicious and harmful use. Model unlearning has been proposed to mitigate the concerns by removing undesired and potentially harmful information from the pre-trained model. So far, the success of unlearning is mainly measured by whether the unlearned model can generate a target concept while maintaining image quality. However, unlearning is typically tested under limited scenarios, and the side effects of unlearning have barely been studied in the current literature. In this work, we thoroughly analyze unlearning under various scenarios with five key aspects. Our investigation reveals that every method has side effects or limitations, especially in more complex and realistic situations. By releasing our comprehensive evaluation framework with the source codes and artifacts, we hope to inspire further research in this area, leading to more reliable and effective unlearning methods.          </p>
+            As text-to-image diffusion models gain widespread commercial applications, there are increasing concerns about unethical or harmful use, including the unauthorized generation of copyrighted or sensitive content. Concept unlearning has emerged as a promising solution to these challenges by removing undesired and harmful information from the pre-trained model. However, the previous evaluations primarily focus on whether target concepts are removed while preserving image quality, neglecting the broader impacts such as unintended side effects. In this work, we propose Holistic Unlearning Benchmark (HUB), a comprehensive framework for evaluating unlearning methods across six key dimensions: faithfulness, alignment, pinpoint-ness, multilingual robustness, attack robustness, and efficiency. Our benchmark covers 33 target concepts, including 16,000 prompts per concept, spanning four categories: Celebrity, Style, Intellectual Property, and NSFW. Our investigation reveals that no single method excels across all evaluation criteria. By releasing our evaluation code and dataset, we hope to inspire further research in this area, leading to more reliable and effective unlearning methods.
+          </p>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
+
+
+<section class="section hero">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+      <h2 class="columns has-text-centered is-centered title is-4">Comparison with previous methods and benchmarks</h2>
+        <div class="publication-image">
+          <!-- Image here -->
+          <img src="static/pdfs/comparison_table.pdf" alt="comparison table" style="width: 100%; height: auto;" />
+          <h2 class="subtitle has-text-centered is-6">
+            We use the abbreviations I, S, C, N, and O to denote Intellectual Property (IP), artist style (Style), Celebrity, NSFW, and Object, respectively. ✓ indicates that the method quantitatively evaluates the corresponding task.          </h2>
+        </div>
+        </div>
     </div>
-  </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
 
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
+      <h2 class="title">Citation</h2>
       <pre><code>
         @article{moon2024holistic,
           title={Holistic Unlearning Benchmark: A Multi-Faceted Evaluation for Text-to-Image Diffusion Model Unlearning},
@@ -276,7 +247,7 @@
         <div class="content">
 
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
